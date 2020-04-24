@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="barcelona" class="pe.isil.equipo.fultbol.Barcelona"></bean>
+    <bean name="madrid" class="pe.isil.equipo.fultbol.Madrid"></bean>
+
+    <bean name="messi" class="pe.isil.jugador.Messi">
+<!--        <constructor-arg name="equipo" ref="madrid"></constructor-arg>-->
+
+        <property name="equipo" ref="madrid"></property>
+    </bean>
+
+
+</beans>

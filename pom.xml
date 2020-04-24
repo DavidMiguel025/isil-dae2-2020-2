@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>01-javaee-di</module>
+        <module>actividad-01</module>
     </modules>
 
     <packaging>pom</packaging>
