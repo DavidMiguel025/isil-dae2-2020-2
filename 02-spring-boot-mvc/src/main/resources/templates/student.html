@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Students</title>
+</head>
+<body>
+
+
+    <div class="container">
+        <h3>Listado de Alumnos</h3>
+
+        <div th:switch="students" >
+
+            <div th:case="*">
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">documentNumber</th>
+                            <th scope="col">name</th>
+                            <th scope="col">lastNameFather</th>
+                            <th scope="col">lastNameMother</th>
+                            <th scope="col">birthDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="student : ${students} ">
+                            <th scope="row" th:text="${student.documentNumber}"></th>
+                            <td th:text="${student.name}"></td>
+                            <td th:text="${student.lastNameFather}"></td>
+                            <td th:text="${student.lastNameMother}"></td>
+                            <td th:text="${student.birthDate}"></td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>
