@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Students</title>
+</head>
+<body>
+<div class="container">
+    <h3>Modificar Alumnos</h3>
+
+    <div>
+        <form action="#" method="post"
+              th:object="${student}"
+              th:action="@{/students/update/{documentNumber} (documentNumber=${student.documentNumber})}"
+        >
+
+            <div class="form-group">
+                <label for="documentNumber">documentNumber</label>
+                <input type="text" class="class-controller" id="documentNumber"
+                       placeholder="Ingrese el numero de documento"
+                       th:field="*{documentNumber}" >
+            </div>
+
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="class-controller" id="name"
+                       placeholder="Ingrese nombre"
+                       th:field="*{name}" >
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameFather">lastNameFather</label>
+                <input type="text" class="class-controller" id="lastNameFather"
+                       placeholder="Ingrese apellido paterno"
+                       th:field="*{lastNameFather}" >
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameMother">lastNameMother</label>
+                <input type="text" class="class-controller" id="lastNameMother"
+                       placeholder="Ingrese apellido materno"
+                       th:field="*{lastNameMother}" >
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate">birthDate</label>
+                <input type="date" class="class-controller" id="birthDate"
+                       placeholder="Ingrese fecha de nacimiento"
+                       th:field="*{birthDate}" >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Modificar Alumno
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
