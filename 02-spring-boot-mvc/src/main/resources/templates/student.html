@@ -16,6 +16,10 @@
     <div class="container">
         <h3>Listado de Alumnos</h3>
 
+        <div class="col-md-12">
+            <a th:href="@{/students/add}" class="btn btn-primary" >Agregar</a>
+        </div>
+
         <div th:switch="students" >
 
             <div th:case="*">

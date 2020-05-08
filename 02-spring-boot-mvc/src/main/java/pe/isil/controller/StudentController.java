@@ -29,4 +29,10 @@ public class StudentController {
         return "student";
     }
 
+    @GetMapping("/students/add")
+    public String addStudent(Model model){
+        model.addAttribute("student", new Student());
+        return "student-add";
+    }
+
 }
