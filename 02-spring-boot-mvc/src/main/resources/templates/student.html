@@ -42,6 +42,16 @@
                             <td th:text="${student.lastNameFather}"></td>
                             <td th:text="${student.lastNameMother}"></td>
                             <td th:text="${student.birthDate}"></td>
+
+                            <td class="text-right">
+                                <div class="btn-group">
+
+                                    <a class="btn btn-primary btn-sm" th:ref="@{/students/edit/{documentNumber} (documentNumber=${student.documentNumber})}" >Editar</a>
+                                    <a class="btn btn-danger btn-sm" th:ref="@{/students/delete/{documentNumber} (documentNumber=${student.documentNumber})}" >Eliminar</a>
+
+                                </div>
+                            </td>
+
                         </tr>
                     </tbody>
 
