@@ -48,4 +48,21 @@ public class StudentController {
         return "student-edit";
     }
 
+    @PostMapping("/students/update/{documentNumber}")
+    public String updateStudent(@PathVariable String documentNumber, Student student){
+
+        //Update
+        studentService.update(student);
+        return "redirect:/students";
+    }
+
+    @GetMapping("/students/delete/{documentNumber}")
+    public String deleteStudent(@PathVariable String documentNumber){
+        Student currentStudent = studentService.findById(documentNumber);
+        if(currentStudent != null){
+            studentService.delete(currentStudent);
+        }
+        return "redirect:/students";
+    }
+
 }
