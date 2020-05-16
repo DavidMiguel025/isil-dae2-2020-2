@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Aerolineas</title>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Listado de Aerolineas</h3>
+
+        <div class="col-md-12">
+            <a th:href="@{/aerolineas/add}" class="btn btn-primary"  >Agregar Aerolineas</a>
+        </div>
+
+        <div th:switch="aerolineas">
+            <div th:case="*" >
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">telefono</th>
+                            <th scope="col">reserva</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="aerolinea : ${aerolineas} ">
+                            <th scope="row" th:text="${aerolinea.id}" ></th>
+                            <td th:text="${aerolinea.nombre}" ></td>
+                            <td th:text="${aerolinea.telefono}" ></td>
+                            <td th:text="${aerolinea.reserva}" ></td>
+
+                            <td class="text-right">
+                                <div class="btn-group">
+                                    <a th:href="@{/aerolineas/edit/{id} (id=${aerolinea.id})}" class="btn btn-primary">Editar</a>
+                                    <a th:href="@{/aerolineas/delete/{id} (id=${aerolinea.id})}" class="btn btn-danger">Eliminar</a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>
