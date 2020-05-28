@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Add</title>
+</head>
+<body>
+<div>
+    <form action="#" method="post"
+          th:object="${payment}"
+          th:action="@{/loans/{loanNumber}/payments/save  (loanNumber = ${loanNumber})}">
+
+        <table>
+            <tr>
+                <td>paymentAmount:</td>
+                <td><input type="number" th:field="*{paymentAmount}"></td>
+            </tr>
+            <tr>
+                <td>createdDate:</td>
+                <td><input type="date" id="currentDate" th:field="*{createdDate}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Agregar</button>
+                    <button type="reset">Limpiar</button>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<script>
+    document.getElementById("currentDate").value = new Date().toISOString().substring(0,10);
+</script>
+
+</body>
+</html>

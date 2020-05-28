@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+#    restart: always
+    environment:
+      MYSQL_DATABASE: isil_dae2_db
+      MYSQL_USER: isil_dae2_user
+      MYSQL_PASSWORD: isil_dae2_password
+      MYSQL_ROOT_PASSWORD: root1234
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer
+#    restart: always
+    ports:
+      - 8080:8080

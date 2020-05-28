@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan List</title>
+</head>
+<body>
+
+<div>
+
+    <div>
+        <a th:href="@{/loans/add}">Agregar</a>
+    </div>
+
+    <div th:switch="loans">
+        <div th:case="*" >
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>loanNumber</th>
+                        <th>clientName</th>
+                        <th>clientLastName</th>
+                        <th>loanAmount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="loan : ${loans}">
+                        <th th:text="${loan.loanNumber}"></th>
+                        <td th:text="${loan.clientName}"></td>
+                        <td th:text="${loan.clientLastName}"></td>
+                        <td th:text="${loan.loanAmount}"></td>
+                        <td>
+                            <di>
+                                <a th:href="@{/loans/edit/{loanNumber} (loanNumber = ${loan.loanNumber})}">Editar</a>
+                                <a th:href="@{/loans/delete/{loanNumber} (loanNumber = ${loan.loanNumber})}">Eliminar</a>
+                                <a th:href="@{/loans/{loanNumber}/payments (loanNumber = ${loan.loanNumber})}">Payments</a>
+                            </di>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

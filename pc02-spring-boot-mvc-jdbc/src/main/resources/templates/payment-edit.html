@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Edit</title>
+</head>
+<body>
+<div>
+    <form action="#" method="post"
+          th:object="${payment}"
+          th:action="@{/loans/{loanNumber}/payments/update/{payment} (loanNumber = ${loanNumber}, payment= ${paymentId})}">
+
+        <table>
+            <tr>
+                <td>paymentId:</td>
+                <td><input type="number" th:field="*{paymentId}" disabled></td>
+            </tr>
+            <tr>
+                <td>paymentAmount:</td>
+                <td><input type="number" th:field="*{paymentAmount}"></td>
+            </tr>
+            <tr>
+                <td>createdDate:</td>
+                <td><input type="date" th:field="*{createdDate}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Agregar</button>
+                    <button type="reset">Limpiar</button>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

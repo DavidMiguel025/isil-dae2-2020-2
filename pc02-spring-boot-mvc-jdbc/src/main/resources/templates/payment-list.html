@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment List</title>
+</head>
+<body>
+
+<div>
+
+    <div>
+        <a th:href="@{/loans/{loanNumber}/payments/add/ (loanNumber=${loanNumber})}">Agregar</a>
+    </div>
+
+    <div th:switch="payments">
+        <div th:case="*" >
+
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>paymentId</th>
+                    <th>paymentAmount</th>
+                    <th>createdDate</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="payment : ${payments}">
+                    <th th:text="${payment.paymentId}"></th>
+                    <td th:text="${payment.paymentAmount}"></td>
+                    <td th:text="${payment.createdDate}"></td>
+                    <td>
+                        <di>
+                            <a th:href="@{/loans/{loanNumber}/payments/edit/{paymentId} (paymentId = ${payment.paymentId}, loanNumber=${loanNumber})}">Editar</a>
+                            <a th:href="@{/loans/{loanNumber}/payments/delete/{paymentId} (paymentId = ${payment.paymentId}, loanNumber=${loanNumber})}">Eliminar</a>
+                        </di>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
